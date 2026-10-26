@@ -1,1 +1,35 @@
 # 1. Import numpy as np and print the version number
+import numpy as np
+print(np.__version__)
+array_1d = np.arange(10)
+print(array_1d)
+
+import pandas as pd
+import ssl
+import certifi
+
+ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=certifi.where())
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data" 
+
+column_names = [
+    "sepal_length",
+    "sepal_width",
+    "petal_length",
+    "petal_width",
+    "species"
+]
+
+iris_df = pd.read_csv(url, header=None, names=column_names)
+
+#Display the first 5 rows
+print(iris_df.head())
+
+first_position = np.where(iris_df.iloc[:, 3] > 1.0)[0][0]
+
+np.random.seed(100)
+a = np.random.uniform(1, 50, 20)
+
+a = np.clip(a, 10, 30)
+
+print(a)
