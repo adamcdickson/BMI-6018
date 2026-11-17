@@ -68,7 +68,7 @@ arg2 = [1, 1, 1]
 print(wrong_add_function(arg1, arg2))
 
 
-# %% Problem 1.b — Correct the Calculation
+# %% Problem 1.b — Correct the Calculation--------------------------------------------------------
 
 def correct_add_function(arg1, arg2):
     # Start at the first element of arg1 so each value can be updated.
@@ -78,8 +78,10 @@ def correct_add_function(arg1, arg2):
     while arg1_index < len(arg1):
         arg_2_sum = 0
 
-        # sum(arg2) already adds every value in arg2, so arg2_elements is not
-        # needed in the corrected calculation.
+        #Original function had arg_2_sum = sum([arg1[arg1_index] + i in arg2])
+        #This added each current value in arg1 to arg2 and then summed those,
+        #rather than summing arg2 first.
+        #sum(arg2) adds every value in arg2
         for arg2_elements in arg2:
             arg_2_sum = arg1[arg1_index] + sum(arg2)
 
@@ -98,7 +100,7 @@ arg2 = [1, 1, 1]
 print(correct_add_function(arg1, arg2))
 
 
-# %% Problem 2.a — Apply the Correction to the Numeric Section
+# %% Problem 2.a — Apply the Correction to the Numeric Section----------------------------------------
 
 def wrong_add_function(arg1, arg2):
     
@@ -111,7 +113,7 @@ def wrong_add_function(arg1, arg2):
         while arg1_index < len(arg1):
             arg_2_sum = 0
 
-            # 
+            # arg2_elements = sum([arg1[arg1_index] + i for i in arg2])
             for arg2_elements in arg2:
                 arg_2_sum = arg1[arg1_index] + sum(arg2)
 
@@ -141,11 +143,10 @@ def wrong_add_function(arg1, arg2):
         return arg1
 
 
-# Test only the corrected numeric section for Problem 2.a.
-numeric_arg1 = [1, 2, 3]
-numeric_arg2 = [1, 1, 1]
+# Test only the corrected numeric section for Problem 2.a with original list.
+arg1 = [1, 2, 3]
+arg2 = [1, 1, 1]
 
-print(wrong_add_function(numeric_arg1, numeric_arg2))
-
+print(wrong_add_function(arg1, arg2))
 
 # %%
